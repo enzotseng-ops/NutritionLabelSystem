@@ -1,0 +1,30 @@
+{
+  "name": "nutrition-label-server",
+  "version": "1.0.0",
+  "description": "營養標示計算器 - 後端 API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "migrate": "knex migrate:latest --knexfile config/knexfile.js",
+    "migrate:rollback": "knex migrate:rollback --knexfile config/knexfile.js",
+    "seed": "knex seed:run --knexfile config/knexfile.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.4",
+    "express-session": "^1.17.3",
+    "helmet": "^7.1.0",
+    "knex": "^3.1.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
