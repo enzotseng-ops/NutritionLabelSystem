@@ -8,6 +8,9 @@ const connection = process.env.DATABASE_URL || {
   password: process.env.DB_PASSWORD || 'postgres',
 };
 
+// Coolify test PostgreSQL runs without TLS; production keeps SSL by default.
+const ssl = process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false };
+
 module.exports = {
   development: {
     client: 'pg',
@@ -23,7 +26,7 @@ module.exports = {
     client: 'pg',
     connection: {
       connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false },
+      ssl,
     },
     migrations: {
       directory: require('path').resolve(__dirname, '../migrations'),
